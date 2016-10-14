@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Oswald:700&subset=latin-ext');
+//----------------zmienne---------------------
+$bg-nav: rgba(0, 0, 0, 0.75);
+$bg-home: url(../images/bg.jpg) no-repeat;
+$transition: 0.3s all;
+$font-nav: 'Roboto', sans-serif;
+$font-head: 'Oswald', sans-serif;
+$color-logo: rgb(50, 128, 255);
+$bg-layer: rgb(20, 30, 40);
+$color-about: #6B00F0;
+$color-skills: #0DB500;
+//--------------------------------------------
+body
+{
+	background: $bg-layer;
+}
+a, a:hover, a:link, a:visited
+{
+	text-decoration: none;
+	color: white;
+}
+.main-nav
+{
+	background: $bg-nav;
+	display: flex;
+	flex-flow: row wrap;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	font-family: $font-nav;
+	text-shadow: 1px 1px 1px black;
+	letter-spacing: 2px;
+	z-index: 9999;
+	ul
+	{
+		margin: 0;
+		padding: 0;
+
+		li
+		{
+			float: left;
+			display: block;
+		}
+	}
+	a
+	{
+		display: block;
+		padding: 1.1em 1.5em;
+	}
+}
+.main-nav ul li a
+{
+	text-transform: uppercase;
+	position: relative;
+	line-height: 1.5em;
+	
+	&::before, &::after
+	{
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		z-index: -1;
+	}
+	&::before
+	{
+		border: 2px solid $color-logo;
+		box-shadow: inset -4px -4px 4px black, inset 0 1px 0 rgba(255, 255, 255, 0.75);
+		transform: scaleY(0);
+		transition: 0.2s all;
+	}
+	&:hover::before
+	{
+		transform: scaleY(1);
+	}
+	&::after
+	{
+		transform: scaleX(0);
+		transition: $transition;
+		background: $color-logo;
+		opacity: 0.2;
+		transition-delay: 0.15s;
+	}
+	&:hover::after
+	{
+		transform: scaleX(1);
+	}
+}
+.logo
+{
+	color: lighten($color-logo, 20%);
+	font-family: $font-head;
+	span
+	{
+		color: $color-logo;
+	}
+}
+.page-layer-1
+{
+	position: relative;
+	overflow: hidden;
+}
+.home-block
+{
+	background: rgba(255, 255, 255, 0.05);
+	box-shadow: inset 1px 1px 1px rgba(255, 255, 255, 0.75), 1px 1px 1px black;
+	color: white;
+	margin-top: 18em;
+	padding: 4em 2em;
+	position: relative;
+	text-transform: uppercase;
+	width: 70%;
+	h2
+	{
+		font-size: 2.5em;
+	}
+	h3
+	{
+		font:
+		{
+			size: 2em;
+			family: $font-nav;
+		}
+	}
+	.marks
+	{
+		line-height: 2em;
+		position: absolute;
+		font-size: 8em;
+		top: 0%;
+	}
+	&:hover .marks
+	{
+		animation: pulse 1s infinite;
+	}
+}
+.arrow
+{
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 100em;
+	box-shadow: 1px 1px 1px black, inset 1px 1px 0 rgba(255, 255, 255, 0.5);
+	color: white;
+	font-size: 1.4em;
+	padding: 1em 1.1em;
+	text-shadow: 1px 1px 1px black;
+	position: relative;
+	transform: scale(1);
+	&:hover span
+	{
+		animation: pulseDown 1s infinite;
+	}
+}
+.scene, .scene .layer
+{
+	display: block;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	min-height: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: translate3d(0px, 0px, 0px);
+    z-index: -1;
+}
+.layer
+{
+	& .bg
+	{
+		position: absolute;
+		background: $bg-home;
+		background-size: cover;
+		width: 110%;
+		height: 110%;
+		top: 50%;
+    	left: 50%;
+   		-webkit-transform: translate(-50%, -50%);
+    	transform: translate(-50%, -50%);
+	}
+}
+.page-layer-2
+{
+	background: darken($bg-layer, 6%);
+
+	& .layer-head::after
+	{
+		background: $color-about;
+	}
+}
+.page-layer-3
+{
+	& .layer-head::after
+	{
+		background: $color-skills;
+	}
+}
+.page-layer-2, .page-layer-3
+{
+	& .layer-head
+	{
+		position: relative;
+		padding-bottom: 0.25em;
+	}
+	& .layer-head::after
+	{
+		content: '';
+		position: absolute;
+		top: 100%;
+		left: 40%;
+		height: 2px;
+		width: 20%;
+		margin: 0 auto;
+	}
+}
+.page-layer
+{
+	min-height: 100vh;
+	height: auto;
+	padding: 4em 2em;
+	.layer-head
+	{
+		font:
+		{
+			family: $font-head;
+			size: 4em;
+		}
+		color: white;
+		text-transform: uppercase;
+	}
+}
+.transition
+{
+	transition: $transition;
+}
+@keyframes pulse
+{
+	0%
+	{
+		transform: scale(1);
+	}
+	50%
+	{
+		transform: scale(1.1);
+	}
+	100%
+	{
+		transform: scale(1);
+	}
+}
+@keyframes pulseDown
+{
+	0%
+	{
+		transform: translateY(0);
+	}
+	50%
+	{
+		transform: translateY(30%);
+	}
+	100%
+	{
+		transform: translateY(0);
+	}
+}

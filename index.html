@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<title>Portfolio</title>
+</head>
+<body>
+	<div class="fluid-container">
+		<nav class="main-nav transition navbar navbar-default">
+			<a href="#home" class="logo transition scrollable">&lt;<span>DG</span> /&gt;</a>
+			<ul class="nav navbar-nav">
+				<li><a href="#home">Homepage</a></li>
+				<li><a href="#about">About</a></li>
+				<li><a href="#skills">My Skills</a></li>
+				<li><a href="#contact">Contact</a></li>
+				<div class="clearfix"></div>
+			</ul>
+		</nav>
+		<div class="page-layer page-layer-1" id="home">
+			<ul class="scene">
+				<li class="layer" data-depth="0.2">
+					<div class="bg"></div>
+				</li>
+			</ul>
+			<div class="center-block text-center home-block">
+				<span class="marks" style="left: 0.1em;">&lt;</span>
+				<h2 class="main-head center-block layer-head" style="margin-bottom: 0;">Dominik Grzędzielski</h2>
+				<h3 class="second-head center-block">Webdeveloper</h3>
+				<span class="marks" style="right: 0.1em;"> /&gt;</span>
+			</div>
+			<div class="center-block text-center" style="margin-top: 8em;">
+				<a href="#about" class="arrow scrollable"><span class="glyphicon glyphicon-arrow-down"></span></a>
+			</div>
+		</div>
+		<div class="page-layer page-layer-2" id="about">
+			<div class="center-block text-center" style="width: 50%;">
+				<h2 class="layer-head">
+					About
+				</h2>
+				<div class="about-content">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi perferendis, velit nisi officiis sit ratione dignissimos sint beatae debitis accusantium consectetur et distinctio iusto praesentium blanditiis odio tenetur illum tempora. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta ullam fuga ab adipisci quam ipsam eligendi accusamus voluptatibus, enim optio eos odio asperiores voluptatem velit reiciendis quis quisquam nulla ducimus!
+				</div>
+				<div class="bubbles">
+					<h3>I LIKE</h3>
+					<span class="glyphicon glyphicon-arrow-left bubble-control left" style="font-size: 3em; display: inline-block;"></span>
+					<div class="bubble" style="display: inline-block;">
+						<div class="bubble-content">
+							<figure class="bubble-element" id="bubble-1">
+								<img src="images/music.png" alt="music" />
+								<figcaption>Music</figcaption>
+							</figure>
+							<figure class="bubble-element" id="bubble-2">
+								<img src="images/football.png" alt="music" />
+								<figcaption>Football</figcaption>
+							</figure>
+							<figure class="bubble-element" id="bubble-3">
+								<img src="images/code.png" alt="music" />
+								<figcaption>Webdev</figcaption>
+							</figure>
+							<figure class="bubble-element" id="bubble-4">
+								<img src="images/girl.png" alt="music" />
+								<figcaption>Girls</figcaption>
+							</figure>
+						</div>
+					</div>
+					<span class="glyphicon glyphicon-arrow-right bubble-control right" style="font-size: 3em; display: inline-block;"></span>
+					<div class="bubble-description"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-layer page-layer-3" id="skills">
+			<div class="center-block text-center">
+				<h2 class="layer-head">
+					My skills
+				</h2>
+			</div>
+		</div>
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/parallax.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+	<script>$('.scene').parallax();</script>
+</body>
+</html>
