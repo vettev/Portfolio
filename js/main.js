@@ -30,6 +30,7 @@ $(document).ready(function()
 		{
 			case 2:
 				color = "#6B00F0";
+
 			break;
 
 			case 3:
@@ -116,5 +117,10 @@ $(document).ready(function()
 		var target = $(targetId).offset().top - $('.main-nav').outerHeight();
 		if(!scrolling)
 			scrollTo(target);
-	})
+	});
+
+	$('.skill').each(function()
+	{
+		$(this).css('width', $(this).data('val'));
+	});
 });

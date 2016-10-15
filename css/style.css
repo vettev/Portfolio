@@ -41,7 +41,8 @@ a, a:hover, a:link, a:visited {
 .main-nav ul li a {
   text-transform: uppercase;
   color: white;
-  position: relative; }
+  position: relative;
+  transition: 0.5s all; }
   .main-nav ul li a::before, .main-nav ul li a::after {
     content: '';
     position: absolute;
@@ -203,6 +204,55 @@ a, a:hover, a:link, a:visited {
     color: white;
     font-family: "Oswald", sans-serif; }
 
+.skills {
+  overflow: hidden; }
+  .skills .skill {
+    height: 80px;
+    margin-bottom: 2em;
+    position: relative;
+    transform-origin: 0 0;
+    border-radius: 0 8px 8px 0; }
+    .skills .skill span {
+      position: absolute;
+      top: 40%;
+      font-weight: bold;
+      color: white;
+      text-shadow: 1px 1px 0 black; }
+    .skills .skill .title {
+      left: 1em; }
+    .skills .skill .value {
+      right: 1em;
+      font-family: "Oswald", sans-serif; }
+    .skills .skill::after {
+      content: '';
+      position: absolute;
+      top: calc(100% + 1em);
+      left: 0;
+      width: 200%;
+      height: 0;
+      border: 1px dashed #0DB500;
+      transform: scaleX(1); }
+    .skills .skill:last-child::after {
+      border: none; }
+  .skills .html {
+    background: linear-gradient(to right, #FF5A00, #ff8c4d);
+    border: 2px solid #FF5A00; }
+  .skills .css {
+    background: linear-gradient(to right, #0060FF, #4d90ff);
+    border: 2px solid #0060FF; }
+  .skills .js {
+    background: linear-gradient(to right, #C2C426, #dddf58);
+    border: 2px solid #C2C426; }
+  .skills .jquery {
+    background: linear-gradient(to right, #3380ff, #80b0ff);
+    border: 2px solid #3380ff; }
+  .skills .php {
+    background: linear-gradient(to right, #164981, #216ec2);
+    border: 2px solid #164981; }
+  .skills .symfony {
+    background: linear-gradient(to right, #4800FF, #7f4dff);
+    border: 2px solid #4800FF; }
+
 .page-layer {
   min-height: 100vh;
   padding: 4em 2em;
@@ -249,5 +299,35 @@ a, a:hover, a:link, a:visited {
     opacity: 1;
     -webkit-transform: none;
     transform: none; } }
+@keyframes scaleInX {
+  0% {
+    transform: scaleX(0); }
+  100% {
+    transform: scaleX(1); } }
+@keyframes bounceIn {
+  from, 20%, 40%, 60%, 80%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+  0% {
+    opacity: 0;
+    -webkit-transform: scale3d(0.3, 0.3, 0.3);
+    transform: scale3d(0.3, 0.3, 0.3); }
+  20% {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.1, 1.1, 1.1); }
+  40% {
+    -webkit-transform: scale3d(0.9, 0.9, 0.9);
+    transform: scale3d(0.9, 0.9, 0.9); }
+  60% {
+    opacity: 1;
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    transform: scale3d(1.03, 1.03, 1.03); }
+  80% {
+    -webkit-transform: scale3d(0.97, 0.97, 0.97);
+    transform: scale3d(0.97, 0.97, 0.97); }
+  to {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1); } }
 
 /*# sourceMappingURL=style.css.map */

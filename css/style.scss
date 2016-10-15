@@ -62,6 +62,7 @@ a, a:hover, a:link, a:visited
 	text-transform: uppercase;
 	color: white;
 	position: relative;
+	transition: 0.5s all;
 	
 	&::before, &::after
 	{
@@ -293,6 +294,87 @@ a, a:hover, a:link, a:visited
 		font-family: $font-head;
 	}
 }
+.skills
+{
+	overflow: hidden;
+	.skill
+	{
+		height: 80px;
+		margin-bottom: 2em;
+		position: relative;
+		transform-origin: 0 0;
+		border-radius: 0 8px 8px 0;
+
+		span
+		{
+			position: absolute;
+			top: 40%;
+			font-weight: bold;
+			color: white;
+			text-shadow: 1px 1px 0 black;
+		}
+		.title
+		{
+			left: 1em;
+		}
+		.value
+		{
+			right: 1em;
+			font-family: $font-head;
+		}
+		&::after
+		{
+			content: '';
+			position: absolute;
+			top: calc(100% + 1em);
+			left: 0;
+			width: 200%;
+			height: 0;
+			border: 1px dashed $color-skills;
+			transform: scaleX(1);
+		}
+		&:last-child::after
+		{
+			border: none;
+		}
+	}
+	$html-color: #FF5A00;
+	$css-color: #0060FF;
+	$js-color: #C2C426;
+	$jquery-color: lighten($css-color, 10%);
+	$php-color: #164981;
+	$symfony-color: #4800FF;
+	.html
+	{
+		background: linear-gradient(to right, $html-color, lighten($html-color, 15%));
+		border: 2px solid $html-color;
+	}
+	.css
+	{
+		background: linear-gradient(to right, $css-color, lighten($css-color, 15%));
+		border: 2px solid $css-color;
+	}
+	.js
+	{
+		background: linear-gradient(to right, $js-color, lighten($js-color, 15%));
+		border: 2px solid $js-color;
+	}
+	.jquery
+	{
+		background: linear-gradient(to right, $jquery-color, lighten($jquery-color, 15%));
+		border: 2px solid $jquery-color;
+	}
+	.php
+	{
+		background: linear-gradient(to right, $php-color, lighten($php-color, 15%));
+		border: 2px solid $php-color;
+	}
+	.symfony
+	{
+		background: linear-gradient(to right, $symfony-color, lighten($symfony-color, 15%));
+		border: 2px solid $symfony-color;
+	}
+}
 .page-layer
 {
 	min-height: 100vh;
@@ -370,4 +452,62 @@ a, a:hover, a:link, a:visited
    		-webkit-transform: none;
     	transform: none;
 	}
+}
+@keyframes scaleInX
+{
+	0%
+	{
+		transform: scaleX(0);
+	}
+	100%
+	{
+		transform: scaleX(1);	
+	}
+}
+@keyframes bounceIn
+{
+  from, 20%, 40%, 60%, 80%, to
+  {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0%
+  {
+    opacity: 0;
+    -webkit-transform: scale3d(.3, .3, .3);
+    transform: scale3d(.3, .3, .3);
+  }
+
+  20%
+  {
+    -webkit-transform: scale3d(1.1, 1.1, 1.1);
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40%
+  {
+    -webkit-transform: scale3d(.9, .9, .9);
+    transform: scale3d(.9, .9, .9);
+  }
+
+  60%
+  {
+    opacity: 1;
+    -webkit-transform: scale3d(1.03, 1.03, 1.03);
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80%
+  {
+    -webkit-transform: scale3d(.97, .97, .97);
+    transform: scale3d(.97, .97, .97);
+  }
+
+  to
+  {
+    opacity: 1;
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
 }
