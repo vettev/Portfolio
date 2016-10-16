@@ -42,7 +42,8 @@ a, a:hover, a:link, a:visited {
   text-transform: uppercase;
   color: white;
   position: relative;
-  transition: 0.5s all; }
+  transition: 0.5s all;
+  z-index: 1; }
   .main-nav ul li a::before, .main-nav ul li a::after {
     content: '';
     position: absolute;
@@ -82,7 +83,7 @@ a, a:hover, a:link, a:visited {
   background: rgba(255, 255, 255, 0.05);
   box-shadow: inset 1px 1px 1px rgba(255, 255, 255, 0.75), 1px 1px 1px black;
   color: white;
-  margin-top: 18em;
+  margin-top: 15em;
   padding: 4em 2em;
   position: relative;
   text-transform: uppercase;
@@ -92,16 +93,6 @@ a, a:hover, a:link, a:visited {
   .home-block h3 {
     font-size: 2em;
     font-family: "Roboto", sans-serif; }
-  .home-block .marks {
-    line-height: 2em;
-    position: absolute;
-    font-size: 8em;
-    top: 0%;
-    transform: scale3d(0, 0, 0);
-    transition: 1s all;
-    font-family: "Roboto", sans-serif; }
-  .home-block:hover .marks {
-    transform: scale3d(1, 1, 1); }
 
 .arrow {
   background: rgba(255, 255, 255, 0.1);
@@ -275,6 +266,9 @@ a, a:hover, a:link, a:visited {
 
 .fadeInDown {
   animation: fadeInDown 0.3s; }
+
+.scaleInX {
+  animation: 1s scaleInX; }
 
 @keyframes pulseDown {
   0% {

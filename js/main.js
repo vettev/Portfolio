@@ -3,11 +3,16 @@ $(document).ready(function()
 	var scrolling = false; //flaga, sprawdza czy w danym momencie bedziemy mogli nacisnac odnosnik
 	var pages = 3; //ilosc "stron" na stronie
 
+	var sliding = false; //flaga sprawdza czy w danym momencie zmieniany jest slajd
+	var slidesQnt = $('.bubble-element').length; //ilosc slajdow
+	var activeSlide = 1; //aktywny slajd
+	var change = parseInt($('.bubble-element').outerWidth()) + 10; //o ile przesuwac
+
 	function scrollTo(target)
 	{
 		scrolling = true;
-		$('html body').animate({scrollTop: target
-			}, function()
+		$('html, body').animate({scrollTop: target
+			}, 1000, function()
 			{
 				scrolling = false;
 			}
@@ -42,12 +47,40 @@ $(document).ready(function()
 			break;
 		}
 		$('.logo span').css('color', color);
-	} 
+	}
 
-	var sliding = false; //flaga sprawdza czy w danym momencie zmieniany jest slajd
-	var slidesQnt = 4; //ilosc slajdow
-	var activeSlide = 1; //aktywny slajd
-	var change = parseInt($('.bubble-element').outerWidth()) + 10; //o ile przesuwac
+	$.fn.isOnScreen = function()
+	{
+
+	    var win = $(window);
+
+	    var viewport = {
+	        top : win.scrollTop(),
+	    };
+	    viewport.bottom = viewport.top + win.height() + (win.height() * 0.1);
+
+	    var bounds = this.offset();
+	    bounds.bottom = bounds.top + this.outerHeight();
+
+	    return (!(viewport.bottom < bounds.top || viewport.top > bounds.bottom));
+
+	}
+	function animations()
+	{
+		$('.animate').each(function()
+		{
+			var anim = $(this).data('anim');
+			if($(this).isOnScreen() && !$(this).hasClass('animated') && anim)
+			{
+				$(this).removeClass('animate').addClass('animated ' + anim);
+			}
+		});
+	}
+
+	animations();
+	activePage();
+	$('body').scrollspy({target: '.main-nav', offset: 100});
+
 	var descriptionContent = $('#bubble-' + activeSlide +' figcaption').html(); //pobranie contentu
 	$('.bubble-description').html(descriptionContent); //ustawienie contentu
 	$('.bubble-control').click(function()
@@ -86,9 +119,6 @@ $(document).ready(function()
 		}
 	});
 
-	activePage();
-	$('body').scrollspy({target: '.main-nav', offset: 100})
-
 	if($(window).scrollTop() <= 30)
 	{
 		$('.main-nav ul li a').css("line-height", '3.2em');
@@ -108,6 +138,7 @@ $(document).ready(function()
 			$('.main-nav ul li a').css("line-height", '3.2em');
 			$('.logo').css('font-size', '1.5em');
 		}
+		animations();
 	});
 
 	$('.scrollable, .main-nav ul li a').click(function(e)
@@ -119,7 +150,7 @@ $(document).ready(function()
 			scrollTo(target);
 	});
 
-	$('.skill').each(function()
+	$('.skill').each(function(i)
 	{
 		$(this).css('width', $(this).data('val'));
 	});
