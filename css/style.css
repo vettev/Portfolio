@@ -270,6 +270,9 @@ a, a:hover, a:link, a:visited {
 .scaleInX {
   animation: 1s scaleInX; }
 
+.scaleIn {
+  animation: 1s scaleIn; }
+
 @keyframes pulseDown {
   0% {
     transform: translateY(0); }
@@ -298,6 +301,11 @@ a, a:hover, a:link, a:visited {
     transform: scaleX(0); }
   100% {
     transform: scaleX(1); } }
+@keyframes scaleIn {
+  0% {
+    transform: scale3d(0, 0, 0); }
+  100% {
+    transform: scale3d(1, 1, 1); } }
 @keyframes bounceIn {
   from, 20%, 40%, 60%, 80%, to {
     -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);

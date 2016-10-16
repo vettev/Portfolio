@@ -7,6 +7,7 @@ $(document).ready(function()
 	var slidesQnt = $('.bubble-element').length; //ilosc slajdow
 	var activeSlide = 1; //aktywny slajd
 	var change = parseInt($('.bubble-element').outerWidth()) + 10; //o ile przesuwac
+	var descriptionContent = $('#bubble-' + activeSlide +' figcaption').html(); //pobranie contentu slajdu
 
 	function scrollTo(target)
 	{
@@ -81,7 +82,6 @@ $(document).ready(function()
 	activePage();
 	$('body').scrollspy({target: '.main-nav', offset: 100});
 
-	var descriptionContent = $('#bubble-' + activeSlide +' figcaption').html(); //pobranie contentu
 	$('.bubble-description').html(descriptionContent); //ustawienie contentu
 	$('.bubble-control').click(function()
 	{
@@ -146,7 +146,7 @@ $(document).ready(function()
 		e.preventDefault();
 		var targetId = $(this).attr('href');
 		var target = $(targetId).offset().top - $('.main-nav').outerHeight();
-		if(!scrolling)
+		if(!scrolling && (parseInt(target) != $(window).scrollTop()) )
 			scrollTo(target);
 	});
 

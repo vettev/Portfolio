@@ -399,6 +399,10 @@ a, a:hover, a:link, a:visited
 {
 	animation: 1s scaleInX;
 }
+.scaleIn
+{
+	animation: 1s scaleIn;
+}
 @keyframes pulseDown
 {
 	0%
@@ -454,6 +458,17 @@ a, a:hover, a:link, a:visited
 	{
 		transform: scaleX(1);	
 	}
+}
+@keyframes scaleIn
+{
+	0%
+	{
+		transform: scale3d(0, 0, 0);
+	}
+	100%
+	{
+		transform: scale3d(1, 1, 1);	
+	}	
 }
 @keyframes bounceIn
 {
