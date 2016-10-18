@@ -14,7 +14,6 @@ a, a:hover, a:link, a:visited {
   color: white; }
 
 .main-nav {
-  background: rgba(0, 0, 0, 0.75);
   display: flex;
   flex-flow: row wrap;
   position: fixed;
@@ -33,6 +32,19 @@ a, a:hover, a:link, a:visited {
 .main-nav ul {
   margin: 0;
   padding: 0; }
+  .main-nav ul .active {
+    position: relative; }
+    .main-nav ul .active::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      background: #3280ff;
+      transform-origin: 50% 0;
+      transition: 0.25s all;
+      animation: 0.35s scaleInX; }
 
 .main-nav ul li {
   float: left;
@@ -227,22 +239,22 @@ a, a:hover, a:link, a:visited {
       border: none; }
   .skills .html {
     background: linear-gradient(to right, #FF5A00, #ff8c4d);
-    border: 2px solid #FF5A00; }
+    border: 2px solid #e65100; }
   .skills .css {
     background: linear-gradient(to right, #0060FF, #4d90ff);
-    border: 2px solid #0060FF; }
+    border: 2px solid #0056e6; }
   .skills .js {
     background: linear-gradient(to right, #C2C426, #dddf58);
-    border: 2px solid #C2C426; }
+    border: 2px solid #adaf22; }
   .skills .jquery {
     background: linear-gradient(to right, #3380ff, #80b0ff);
-    border: 2px solid #3380ff; }
+    border: 2px solid #1a70ff; }
   .skills .php {
     background: linear-gradient(to right, #164981, #216ec2);
-    border: 2px solid #164981; }
+    border: 2px solid #123d6b; }
   .skills .symfony {
     background: linear-gradient(to right, #4800FF, #7f4dff);
-    border: 2px solid #4800FF; }
+    border: 2px solid #4100e6; }
 
 .page-layer {
   min-height: 100vh;
@@ -254,6 +266,20 @@ a, a:hover, a:link, a:visited {
     color: white;
     text-transform: uppercase;
     margin-bottom: 1em; }
+
+.nav-normal {
+  background: rgba(0, 0, 0, 0.65); }
+  .nav-normal ul li a {
+    line-height: 1.5em; }
+  .nav-normal .logo {
+    font-size: 1em; }
+
+.nav-expanded {
+  background: rgba(0, 0, 0, 0.25); }
+  .nav-expanded ul li a {
+    line-height: 3.2em; }
+  .nav-expanded .logo {
+    font-size: 1.5em; }
 
 .transition {
   transition: 0.3s all; }
@@ -273,6 +299,28 @@ a, a:hover, a:link, a:visited {
 .scaleIn {
   animation: 1s scaleIn; }
 
+.bounceIn {
+  animation: 1s bounceIn; }
+
+@media (max-width: 991px) {
+  .page-layer {
+    padding: 2em 1em; }
+    .page-layer .center-block {
+      width: 90% !important; }
+    .page-layer .layer-head {
+      font-size: 3em; }
+
+  .home-block {
+    margin-top: 10em; }
+
+  .page-layer-1 > .center-block:not(:first-child) {
+    margin-top: 5em !important;
+    margin-bottom: 2em; }
+
+  .main-nav ul li {
+    display: block;
+    width: 100%;
+    text-align: center; } }
 @keyframes pulseDown {
   0% {
     transform: translateY(0); }

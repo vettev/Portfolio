@@ -1,5 +1,9 @@
 $(document).ready(function()
 {
+	var isMobile = window.matchMedia("only screen and (max-width: 991px)");
+
+	if(isMobile.matches) alert("MOBILE");
+
 	var scrolling = false; //flaga, sprawdza czy w danym momencie bedziemy mogli nacisnac odnosnik
 	var pages = 3; //ilosc "stron" na stronie
 
@@ -9,6 +13,7 @@ $(document).ready(function()
 	var change = parseInt($('.bubble-element').outerWidth()) + 10; //o ile przesuwac
 	var descriptionContent = $('#bubble-' + activeSlide +' figcaption').html(); //pobranie contentu slajdu
 
+	var scrTop = $(window).scrollTop();
 	function scrollTo(target)
 	{
 		scrolling = true;
@@ -36,7 +41,6 @@ $(document).ready(function()
 		{
 			case 2:
 				color = "#6B00F0";
-
 			break;
 
 			case 3:
@@ -77,9 +81,21 @@ $(document).ready(function()
 			}
 		});
 	}
+	function navChange(top)
+	{
+		if(top > 30 && !$('.main-nav').hasClass('nav-normal'))
+		{
+			$('.main-nav').removeClass('nav-expanded').addClass('nav-normal');
+		}
+		else if(top <= 30 && !$('.main-nav').hasClass('nav-expanded'))
+		{
+			$('.main-nav').removeClass('nav-normal').addClass('nav-expanded');		
+		}
+	}
 
 	animations();
 	activePage();
+	navChange(scrTop);
 	$('body').scrollspy({target: '.main-nav', offset: 100});
 
 	$('.bubble-description').html(descriptionContent); //ustawienie contentu
@@ -119,25 +135,12 @@ $(document).ready(function()
 		}
 	});
 
-	if($(window).scrollTop() <= 30)
-	{
-		$('.main-nav ul li a').css("line-height", '3.2em');
-		$('.logo').css('font-size', '1.5em');
-	}
 
 	$(window).scroll(function()
 	{
+		scrTop = $(this).scrollTop();
 		activePage();
-		if($(this).scrollTop() > 30)
-		{
-			$('.main-nav ul li a').css("line-height", '1.5em');
-			$('.logo').css('font-size', '1em');
-		}
-		else
-		{
-			$('.main-nav ul li a').css("line-height", '3.2em');
-			$('.logo').css('font-size', '1.5em');
-		}
+		navChange(scrTop);
 		animations();
 	});
 
@@ -146,12 +149,7 @@ $(document).ready(function()
 		e.preventDefault();
 		var targetId = $(this).attr('href');
 		var target = $(targetId).offset().top - $('.main-nav').outerHeight();
-		if(!scrolling && (parseInt(target) != $(window).scrollTop()) )
+		if(!scrolling && (parseInt(target) != scrTop) )
 			scrollTo(target);
-	});
-
-	$('.skill').each(function(i)
-	{
-		$(this).css('width', $(this).data('val'));
 	});
 });
