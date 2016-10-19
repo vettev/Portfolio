@@ -127,10 +127,27 @@ a, a:hover, a:link, a:visited
 		transition: 0.5s all;
 	}
 }
+.page-layer
+{
+	padding: 4em 2em;
+	z-index: 1;
+	.layer-head
+	{
+		font:
+		{
+			family: $font-head;
+			size: 4em;
+		}
+		color: white;
+		text-transform: uppercase;
+		margin-bottom: 1em;
+	}
+}
 .page-layer-1
 {
 	position: relative;
 	overflow: hidden;
+	min-height: 100vh;
 }
 .home-block
 {
@@ -380,21 +397,58 @@ a, a:hover, a:link, a:visited
 		border: 2px solid darken($symfony-color, 5%);
 	}
 }
-.page-layer
+.page-layer-4
 {
-	min-height: 100vh;
-	padding: 4em 2em;
-	z-index: 1;
-	.layer-head
+	background: url(../images/bg-works.jpg) fixed;
+	background-size: 100% 100%;
+	box-shadow: inset 0 2px 2px black, inset 0 -2px 2px black;
+
+	& > div > a
 	{
-		font:
+		box-shadow: 1px 1px 1px black;
+		background: $bg-layer;
+		border: 1px solid black;
+		border-radius: 100%;
+		margin: auto;
+		padding: 2em;
+		font-size: 2em;
+		transition: $transition;
+		text-shadow: 1px 1px 1px black;
+		position: relative;
+		text-align: center;
+		overflow: hidden;
+
+		span
 		{
-			family: $font-head;
-			size: 4em;
+			display: block;
+			transition: $transition;
+			transform: translateY(-250%);
 		}
-		color: white;
-		text-transform: uppercase;
-		margin-bottom: 1em;
+
+		& > .img
+		{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			margin: auto;
+			transform: translateY(25%);
+			transition: $transition;
+		}
+		&:hover
+		{
+			transform: scale3d(1.05, 1.05, 1.05);
+			background: lighten($bg-layer, 2%);
+			span
+			{
+				transform: translateY(0);
+			}
+			.img
+			{
+				transform: translateY(100%);
+			}
+		}
 	}
 }
 .nav-normal

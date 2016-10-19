@@ -87,9 +87,20 @@ a, a:hover, a:link, a:visited {
     color: #3280ff;
     transition: 0.5s all; }
 
+.page-layer {
+  padding: 4em 2em;
+  z-index: 1; }
+  .page-layer .layer-head {
+    font-family: "Oswald", sans-serif;
+    font-size: 4em;
+    color: white;
+    text-transform: uppercase;
+    margin-bottom: 1em; }
+
 .page-layer-1 {
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  min-height: 100vh; }
 
 .home-block {
   background: rgba(255, 255, 255, 0.05);
@@ -256,16 +267,43 @@ a, a:hover, a:link, a:visited {
     background: linear-gradient(to right, #4800FF, #7f4dff);
     border: 2px solid #4100e6; }
 
-.page-layer {
-  min-height: 100vh;
-  padding: 4em 2em;
-  z-index: 1; }
-  .page-layer .layer-head {
-    font-family: "Oswald", sans-serif;
-    font-size: 4em;
-    color: white;
-    text-transform: uppercase;
-    margin-bottom: 1em; }
+.page-layer-4 {
+  background: url(../images/bg-works.jpg) fixed;
+  background-size: 100% 100%;
+  box-shadow: inset 0 2px 2px black, inset 0 -2px 2px black; }
+  .page-layer-4 > div > a {
+    box-shadow: 1px 1px 1px black;
+    background: #141e28;
+    border: 1px solid black;
+    border-radius: 100%;
+    margin: auto;
+    padding: 2em;
+    font-size: 2em;
+    transition: 0.3s all;
+    text-shadow: 1px 1px 1px black;
+    position: relative;
+    text-align: center;
+    overflow: hidden; }
+    .page-layer-4 > div > a span {
+      display: block;
+      transition: 0.3s all;
+      transform: translateY(-250%); }
+    .page-layer-4 > div > a > .img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      margin: auto;
+      transform: translateY(25%);
+      transition: 0.3s all; }
+    .page-layer-4 > div > a:hover {
+      transform: scale3d(1.05, 1.05, 1.05);
+      background: #17232f; }
+      .page-layer-4 > div > a:hover span {
+        transform: translateY(0); }
+      .page-layer-4 > div > a:hover .img {
+        transform: translateY(100%); }
 
 .nav-normal {
   background: rgba(0, 0, 0, 0.65); }
