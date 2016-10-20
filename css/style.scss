@@ -54,6 +54,7 @@ a, a:hover, a:link, a:visited
 	.active
 	{
 		position: relative;
+		transition: 0.35s all;
 
 		&::after
 		{
@@ -65,7 +66,7 @@ a, a:hover, a:link, a:visited
 			left: 0;
 			background: $color-logo;
 			transform-origin: 50% 0;
-			transition: 0.25s all;
+			transition: 0.35s all;
 			animation: 0.35s scaleInX;
 		}
 	}
@@ -74,6 +75,11 @@ a, a:hover, a:link, a:visited
 {
 	float: left;
 	display: block;
+
+	&::after
+	{
+		background: red;
+	}
 }
 .main-nav ul li a
 {

@@ -33,7 +33,8 @@ a, a:hover, a:link, a:visited {
   margin: 0;
   padding: 0; }
   .main-nav ul .active {
-    position: relative; }
+    position: relative;
+    transition: 0.35s all; }
     .main-nav ul .active::after {
       content: "";
       position: absolute;
@@ -43,12 +44,14 @@ a, a:hover, a:link, a:visited {
       left: 0;
       background: #3280ff;
       transform-origin: 50% 0;
-      transition: 0.25s all;
+      transition: 0.35s all;
       animation: 0.35s scaleInX; }
 
 .main-nav ul li {
   float: left;
   display: block; }
+  .main-nav ul li::after {
+    background: red; }
 
 .main-nav ul li a {
   text-transform: uppercase;
