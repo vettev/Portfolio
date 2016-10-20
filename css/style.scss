@@ -51,7 +51,7 @@ a, a:hover, a:link, a:visited
 	margin: 0;
 	padding: 0;
 
-	.active
+	li
 	{
 		position: relative;
 		transition: 0.35s all;
@@ -65,9 +65,12 @@ a, a:hover, a:link, a:visited
 			bottom: 0;
 			left: 0;
 			background: $color-logo;
-			transform-origin: 50% 0;
 			transition: 0.35s all;
-			animation: 0.35s scaleInX;
+			transform: scaleX(0);
+		}
+		&.active::after
+		{
+			transform: scaleX(1);
 		}
 	}
 }
@@ -75,11 +78,6 @@ a, a:hover, a:link, a:visited
 {
 	float: left;
 	display: block;
-
-	&::after
-	{
-		background: red;
-	}
 }
 .main-nav ul li a
 {
@@ -411,7 +409,6 @@ a, a:hover, a:link, a:visited
 
 	& > div > a
 	{
-		box-shadow: 1px 1px 1px black;
 		background: $bg-layer;
 		border: 1px solid black;
 		border-radius: 100%;
@@ -441,6 +438,7 @@ a, a:hover, a:link, a:visited
 			margin: auto;
 			transform: translateY(25%);
 			transition: $transition;
+			filter: drop-shadow(1px 1px 1px black);
 		}
 		&:hover
 		{

@@ -32,10 +32,10 @@ a, a:hover, a:link, a:visited {
 .main-nav ul {
   margin: 0;
   padding: 0; }
-  .main-nav ul .active {
+  .main-nav ul li {
     position: relative;
     transition: 0.35s all; }
-    .main-nav ul .active::after {
+    .main-nav ul li::after {
       content: "";
       position: absolute;
       width: 100%;
@@ -43,15 +43,14 @@ a, a:hover, a:link, a:visited {
       bottom: 0;
       left: 0;
       background: #3280ff;
-      transform-origin: 50% 0;
       transition: 0.35s all;
-      animation: 0.35s scaleInX; }
+      transform: scaleX(0); }
+    .main-nav ul li.active::after {
+      transform: scaleX(1); }
 
 .main-nav ul li {
   float: left;
   display: block; }
-  .main-nav ul li::after {
-    background: red; }
 
 .main-nav ul li a {
   text-transform: uppercase;
@@ -275,7 +274,6 @@ a, a:hover, a:link, a:visited {
   background-size: 100% 100%;
   box-shadow: inset 0 2px 2px black, inset 0 -2px 2px black; }
   .page-layer-4 > div > a {
-    box-shadow: 1px 1px 1px black;
     background: #141e28;
     border: 1px solid black;
     border-radius: 100%;
@@ -299,7 +297,8 @@ a, a:hover, a:link, a:visited {
       left: 0;
       margin: auto;
       transform: translateY(25%);
-      transition: 0.3s all; }
+      transition: 0.3s all;
+      filter: drop-shadow(1px 1px 1px black); }
     .page-layer-4 > div > a:hover {
       transform: scale3d(1.05, 1.05, 1.05);
       background: #17232f; }
