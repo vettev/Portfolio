@@ -70,7 +70,7 @@ a, a:hover, a:link, a:visited {
     border: 2px solid #3280ff;
     transform: scaleY(0);
     transition: 0.2s all;
-    box-shadow: inset -4px -4px 4px black, inset 0 1px 0 rgba(255, 255, 255, 0.75); }
+    box-shadow: inset -1px -1px 1px black, inset 0 1px 0 rgba(255, 255, 255, 0.75); }
   .main-nav ul li a:hover::before {
     transform: scaleY(1); }
   .main-nav ul li a::after {
@@ -161,21 +161,23 @@ a, a:hover, a:link, a:visited {
 .page-layer-2 {
   background: #0a0f14; }
   .page-layer-2 .layer-head::after {
-    background: #6B00F0; }
+    background: #DEFF00; }
   .page-layer-2 span {
-    color: #6B00F0; }
+    color: #DEFF00; }
   .page-layer-2 .about-content {
     font-size: 1.3em;
     line-height: 1.5;
     color: #dfdfdf; }
 
-.page-layer-3 .layer-head::after {
-  background: #0DB500; }
+.page-layer-3 {
+  background: #17232f; }
+  .page-layer-3 .layer-head::after {
+    background: #0DB500; }
 
-.page-layer-2 .layer-head, .page-layer-3 .layer-head {
+.page-layer-2 .layer-head, .page-layer-3 .layer-head, .page-layer-5 .layer-head {
   position: relative;
   padding-bottom: 0.25em; }
-.page-layer-2 .layer-head::after, .page-layer-3 .layer-head::after {
+.page-layer-2 .layer-head::after, .page-layer-3 .layer-head::after, .page-layer-5 .layer-head::after {
   content: '';
   position: absolute;
   top: 100%;
@@ -269,15 +271,41 @@ a, a:hover, a:link, a:visited {
     background: linear-gradient(to right, #4800FF, #7f4dff);
     border: 2px solid #4100e6; }
 
+.ticks {
+  display: flex;
+  flex-flow: row wrap; }
+  .ticks .tick {
+    color: white;
+    margin: auto;
+    font-size: 2em;
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    padding-bottom: 0.25em;
+    cursor: default; }
+    .ticks .tick::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: #0DB500;
+      transform: scaleX(0);
+      transform-origin: 0 0;
+      transition-timing-function: cubic-bezier(0.98, 0.27, 0.48, 0.96);
+      transition: 0.5s all; }
+    .ticks .tick:hover::after {
+      transform: scaleX(1); }
+
 .page-layer-4 {
   background: url(../images/bg-works.jpg) fixed;
   background-size: 100% 100%;
   box-shadow: inset 0 2px 2px black, inset 0 -2px 2px black; }
   .page-layer-4 > div > a {
-    background: #141e28;
+    background: #1d2b39;
     border: 1px solid black;
     border-radius: 100%;
-    margin: auto;
+    margin: 0.5em auto;
     padding: 2em;
     font-size: 2em;
     transition: 0.3s all;
@@ -301,11 +329,75 @@ a, a:hover, a:link, a:visited {
       filter: drop-shadow(1px 1px 1px black); }
     .page-layer-4 > div > a:hover {
       transform: scale3d(1.05, 1.05, 1.05);
-      background: #17232f; }
+      background: #25374a; }
       .page-layer-4 > div > a:hover span {
         transform: translateY(0); }
       .page-layer-4 > div > a:hover .img {
         transform: translateY(100%); }
+
+.page-layer-5 {
+  background: #0d141a; }
+  .page-layer-5 .layer-head::after {
+    background: #6B00F0; }
+  .page-layer-5 .form-contact .input-block {
+    margin: 2em 0;
+    position: relative; }
+  .page-layer-5 .form-contact .input-field {
+    width: 100%;
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    font-size: 2em;
+    outline: none;
+    padding: 0.1em 0.25em;
+    transition: 0.4s all;
+    color: white;
+    border-radius: 4px; }
+  .page-layer-5 .form-contact .input-field:focus {
+    background: rgba(107, 0, 240, 0.08); }
+  .page-layer-5 .form-contact .active-line {
+    position: absolute;
+    left: 2px;
+    bottom: 0;
+    width: calc(100% - 4px);
+    border-radius: 4px;
+    height: 2px;
+    background: #6B00F0;
+    transition: 0.6s all;
+    transform: scaleX(0);
+    transform-origin: 0 0; }
+  .page-layer-5 .form-contact textarea + .active-line {
+    bottom: 5px; }
+  .page-layer-5 .form-contact .input-field:focus + .active-line {
+    transform: scaleX(1); }
+  .page-layer-5 .form-contact .i-submit {
+    color: #a257ff;
+    background: none;
+    padding: 1em 2em;
+    font-size: 1.5em;
+    border: 2px solid #780aff;
+    position: relative;
+    transition: 0.5s all;
+    overflow: hidden;
+    border-radius: 4px;
+    text-transform: uppercase;
+    z-index: 1; }
+    .page-layer-5 .form-contact .i-submit::after {
+      content: '';
+      position: absolute;
+      left: -20%;
+      top: -30%;
+      width: 140%;
+      height: 160%;
+      background: rgba(107, 0, 240, 0.5);
+      transform: scaleY(0);
+      transition: 0.3s all;
+      border-radius: 100%;
+      z-index: -1; }
+    .page-layer-5 .form-contact .i-submit:hover {
+      color: white;
+      border-color: rgba(107, 0, 240, 0.5); }
+    .page-layer-5 .form-contact .i-submit:hover::after {
+      transform: scaleY(1); }
 
 .nav-normal {
   background: rgba(0, 0, 0, 0.65); }
@@ -357,10 +449,32 @@ a, a:hover, a:link, a:visited {
     margin-top: 5em !important;
     margin-bottom: 2em; }
 
-  .main-nav ul li {
-    display: block;
-    width: 100%;
-    text-align: center; } }
+  .main-nav {
+    position: absolute; }
+    .main-nav > * {
+      margin: auto; }
+    .main-nav ul li {
+      display: block;
+      width: 100%;
+      text-align: center; }
+    .main-nav .mobile-menu-toggle {
+      background: transparent;
+      border: none;
+      padding: 0.3em 0 0 0;
+      font-size: 2.5em;
+      text-align: center;
+      color: #3280ff; } }
+@media (max-width: 480px) {
+  .page-layer {
+    padding: 1em 0.5em; }
+    .page-layer .layer-head {
+      font-size: 2em; }
+
+  .home-block {
+    margin-top: 10em;
+    padding: 5em 0.5em; }
+    .home-block h3 {
+      font-size: 1.5em; } }
 @keyframes pulseDown {
   0% {
     transform: translateY(0); }

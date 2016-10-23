@@ -10,11 +10,13 @@
 <body>
 	<div class="fluid-container">
 		<nav class="main-nav transition">
-			<a href="#home" class="logo transition scrollable">&lt;<span>DG</span> /&gt;</a>
+			<a href="#home" class="logo transition scrollable hidden-sm hidden-xs">&lt;<span>DG</span> /&gt;</a>
+			<a href="#" class="mobile-menu-toggle visible-sm visible-xs"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
 			<ul class="nav navbar-nav">
 				<li><a href="#home">Homepage</a></li>
 				<li><a href="#about">About</a></li>
 				<li><a href="#skills">My Skills</a></li>
+				<li><a href="#works">My work</a></li>
 				<li><a href="#contact">Contact</a></li>
 				<div class="clearfix"></div>
 			</ul>
@@ -83,6 +85,21 @@
 					<div class="skill php animate" style="width: 65%;" data-anim="scaleInX"><span class="title">PHP</span><span class="value">65%</span></div>
 					<div class="skill symfony animate" style="width: 60%;" data-anim="scaleInX"><span class="title">Symfony</span><span class="value">60%</span></div>
 				</div>
+				
+				<div class="ticks">
+					<div class="tick">
+						<img src="images/tick.png" alt="tick" />
+						<span>Bootstrap</span>
+					</div>
+					<div class="tick">
+						<img src="images/tick.png" alt="tick" />
+						<span>SCSS/SASS</span>
+					</div>
+					<div class="tick">
+						<img src="images/tick.png" alt="tick" />
+						<span>RWD</span>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="page-layer page-layer-4" id="works">
@@ -98,7 +115,36 @@
 			</div>
 		</div>
 		<div class="page-layer page-layer-5" id="contact">
-			
+			<div class="center-block form-contact" style="width: 70%;">
+				<h2 class="layer-head text-center">
+					CONTACT
+				</h2>
+				<form action="" method="post">
+					<div class="input-block">
+						<label for="i-name">Name</label>
+						<input type="text" name="name" id="i-name" class="input-field"/>
+						<span class="active-line"></span>
+					</div>
+					<div class="input-block">
+						<label for="i-email">Email</label>
+						<input type="email" name="email" id="i-email" class="input-field"/>
+						<span class="active-line"></span>
+					</div>
+					<div class="input-block">
+						<label for="i-title">Title</label>
+						<input type="text" name="title" id="i-title" class="input-field" />
+						<span class="active-line"></span>
+					</div>
+					<div class="input-block">
+						<label for="i-content">Your Message</label>
+						<textarea name="content" id="i-content" class="input-field" rows="5"></textarea>
+						<span class="active-line"></span>
+					</div>
+					<div class="input-block text-center">
+						<button type="submit" name="submit" class="i-submit">Send</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 	<script src="js/jquery.min.js"></script>
