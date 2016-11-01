@@ -366,7 +366,7 @@ a, a:hover, a:link, a:visited {
     transform: scaleX(0);
     transform-origin: 0 0; }
   .page-layer-5 .form-contact textarea + .active-line {
-    bottom: 5px; }
+    bottom: 0.5%; }
   .page-layer-5 .form-contact .input-field:focus + .active-line {
     transform: scaleX(1); }
   .page-layer-5 .form-contact .i-submit {
@@ -453,17 +453,25 @@ a, a:hover, a:link, a:visited {
     position: absolute; }
     .main-nav > * {
       margin: auto; }
+    .main-nav ul {
+      width: 100%; }
     .main-nav ul li {
       display: block;
       width: 100%;
       text-align: center; }
     .main-nav .mobile-menu-toggle {
+      display: block;
       background: transparent;
       border: none;
+      width: 100%;
       padding: 0.3em 0 0 0;
       font-size: 2.5em;
       text-align: center;
-      color: #3280ff; } }
+      color: #3280ff; }
+
+  .layer .bg {
+    width: 120%;
+    height: 120%; } }
 @media (max-width: 480px) {
   .page-layer {
     padding: 1em 0.5em; }
@@ -474,7 +482,12 @@ a, a:hover, a:link, a:visited {
     margin-top: 10em;
     padding: 5em 0.5em; }
     .home-block h3 {
-      font-size: 1.5em; } }
+      font-size: 1.5em; }
+
+  .bubbles > .glyphicon, .bubbles > .bubble {
+    display: block !important; }
+  .bubbles > .glyphicon {
+    margin: 0.2em 0; } }
 @keyframes pulseDown {
   0% {
     transform: translateY(0); }

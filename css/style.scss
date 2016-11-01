@@ -538,7 +538,7 @@ a, a:hover, a:link, a:visited
 		}
 		textarea + .active-line
 		{
-			bottom: 5px;
+			bottom: 0.5%;
 		}
 		.input-field:focus + .active-line
 		{
@@ -668,7 +668,10 @@ a, a:hover, a:link, a:visited
 		{
 			margin: auto;
 		}
-
+		ul
+		{
+			width: 100%;
+		}
 		ul li
 		{
 			display: block;
@@ -677,13 +680,20 @@ a, a:hover, a:link, a:visited
 		}
 		.mobile-menu-toggle
 		{
+			display: block;
 			background: transparent;
 			border: none;
+			width: 100%;
 			padding: 0.3em 0 0 0;
 			font-size: 2.5em;
 			text-align: center;
 			color: $color-logo;
 		}
+	}
+	.layer .bg
+	{
+		width: 120%;
+		height: 120%;
 	}
 }
 @media( max-width: 480px)
@@ -705,6 +715,17 @@ a, a:hover, a:link, a:visited
 		h3
 		{
 			font-size: 1.5em;
+		}
+	}
+	.bubbles
+	{
+		& > .glyphicon, & > .bubble
+		{
+			display: block!important;
+		}
+		& > .glyphicon
+		{
+			margin: 0.2em 0;
 		}
 	}
 }

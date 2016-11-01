@@ -1,3 +1,6 @@
+<?php 
+	session_start();
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -11,7 +14,7 @@
 	<div class="fluid-container">
 		<nav class="main-nav transition">
 			<a href="#home" class="logo transition scrollable hidden-sm hidden-xs">&lt;<span>DG</span> /&gt;</a>
-			<a href="#" class="mobile-menu-toggle visible-sm visible-xs"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
+			<button class="mobile-menu-toggle visible-sm visible-xs"><span class="glyphicon glyphicon-menu-hamburger"></span></button>
 			<ul class="nav navbar-nav">
 				<li><a href="#home">Homepage</a></li>
 				<li><a href="#about">About</a></li>
@@ -122,12 +125,12 @@
 				<form action="contact.php" method="post">
 					<div class="input-block">
 						<label for="i-name">Name</label>
-						<input type="text" name="name" id="i-name" class="input-field"/>
+						<input type="text" name="name" id="i-name" class="input-field" required="required" />
 						<span class="active-line"></span>
 					</div>
 					<div class="input-block">
 						<label for="i-email">Email</label>
-						<input type="email" name="email" id="i-email" class="input-field"/>
+						<input type="email" name="email" id="i-email" class="input-field" required="required" />
 						<span class="active-line"></span>
 					</div>
 					<div class="input-block">
@@ -137,7 +140,7 @@
 					</div>
 					<div class="input-block">
 						<label for="i-content">Your Message</label>
-						<textarea name="content" id="i-content" class="input-field" rows="5"></textarea>
+						<textarea name="content" id="i-content" class="input-field" rows="5" required="required"></textarea>
 						<span class="active-line"></span>
 					</div>
 					<div class="input-block text-center">
@@ -147,6 +150,13 @@
 			</div>
 		</div>
 	</div>
+	<?php 
+		if(isset($_SESSION['message']))
+		{
+			echo '<script>alert("'.$_SESSION['message'].'")</script>'; 
+			unset($_SESSION['message']);
+		}
+	?>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/parallax.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
