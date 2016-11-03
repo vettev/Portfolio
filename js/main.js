@@ -87,6 +87,14 @@ $(document).ready(function()
 			$('.main-nav ul').slideToggle();
 		});
 		navHeight = $('.main-nav').outerHeight();
+
+		$('input, textarea').focusin(function(){
+			$('.main-nav').slideToggle();
+		});
+
+		$('input, textarea').focusout(function(){
+			$('.main-nav').slideToggle();
+		});
 	}
 
 	$('.bubble-description').html(descriptionContent); //ustawienie contentu

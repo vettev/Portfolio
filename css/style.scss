@@ -521,7 +521,7 @@ a, a:hover, a:link, a:visited
 		}
 		.input-field:focus
 		{
-			background: rgba($color-contact, 0.08);
+			background: rgba($color-contact, 0.1);
 		}
 		.active-line
 		{
@@ -538,7 +538,7 @@ a, a:hover, a:link, a:visited
 		}
 		textarea + .active-line
 		{
-			bottom: 0.5%;
+			display: none;
 		}
 		.input-field:focus + .active-line
 		{
